@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/wishlist', 'WishlistController');
+Route::get('/sharedwishlist/{user_id}', 'SharedWishlistController@index');
+Route::resource('/products', 'ProductController');
