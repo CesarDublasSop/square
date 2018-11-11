@@ -9,6 +9,13 @@
       <strong>{{ \Session::get('flash_message') }}</strong>
     </div>
   @endif
+
+  @if (Auth::user() && Auth::user()->id == $user_id)
+  <div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Sharing link: http://127.0.0.1:8000/sharedwishlist/{{$user_id}}</strong>
+  </div>
+  @endif
     <div class="row justify-content-center">
           {{ $wishlists->links() }}
           @foreach ($wishlists as $wishlist)

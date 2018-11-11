@@ -25,11 +25,12 @@
                       </div>
                       <div class="row panelBottom">
                         <div class="col-md-6 text-center">
-                          <form action="/wishlist" method="post">
-                             @csrf
-                            <input type="hidden" name="product_id" value="{{ $product->id }}">
-                            <button class="btn btn-lg btn-add-to-cart"> Add to Whislist</button>
-                          </form>
+                          @if (Auth::user())
+                            {{ Form::open(array('url' => 'wishlist/', null)) }}
+                                {{ Form::hidden('product_id', $product->id) }}
+                                {{ Form::submit('Add to Whislist', array('class' => 'btn btn-lg btn-add-to-cart')) }}
+                            {{ Form::close() }}
+                          @endif
                         </div>
                         <div class="col-md-6 text-center">
                           <h5>Price <span class="itemPrice">{{ $product->price }}</span></h5>
