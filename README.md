@@ -16,7 +16,7 @@ User: cesar
 Password: cesar
 
 Second Step:
-Clone this responsive
+Clone this repo
 
 Third Step:
 Install all dependencies with composer:
